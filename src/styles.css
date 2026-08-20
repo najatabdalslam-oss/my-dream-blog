@@ -1,0 +1,950 @@
+:root {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #463d36;
+  background: #eee8df;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.8), transparent 30%),
+    #eee8df;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.library-page {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #eee8df;
+}
+
+/* =========================
+   Top navigation
+========================= */
+
+.topbar {
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px clamp(20px, 5vw, 70px);
+
+  color: #463d36;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo span {
+  font-size: 13px;
+  color: #82776c;
+  letter-spacing: 1px;
+}
+
+.logo strong {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 26px;
+}
+
+.topbar nav a {
+  color: #5d534a;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity .2s ease;
+}
+
+.topbar nav a:hover {
+  opacity: .55;
+}
+
+/* =========================
+   Room
+========================= */
+
+.room {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+.room-wall {
+  position: relative;
+  min-height: 67vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(255,255,255,.65),
+      transparent 35%
+    ),
+    #eee8df;
+}
+
+/* =========================
+   Window
+========================= */
+
+.window {
+  position: absolute;
+  top: 105px;
+  left: 5vw;
+
+  width: clamp(130px, 14vw, 190px);
+  height: clamp(170px, 22vw, 245px);
+
+  padding: 10px;
+
+  background: #f9f5ee;
+  border: 2px solid #d7cbbb;
+
+  box-shadow:
+    8px 12px 25px rgba(69, 56, 45, .10);
+}
+
+.window-sky {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #c9d9dc,
+      #e9e4d8
+    );
+}
+
+.window-sky::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+
+  background: #b7c3a8;
+}
+
+.window-sky::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+
+  width: 2px;
+  background: rgba(255,255,255,.8);
+}
+
+.cloud {
+  position: absolute;
+  width: 42px;
+  height: 15px;
+
+  background: rgba(255,255,255,.65);
+  border-radius: 30px;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 22px;
+  height: 22px;
+  left: 7px;
+  top: -9px;
+}
+
+.cloud::after {
+  width: 26px;
+  height: 26px;
+  right: 5px;
+  top: -12px;
+}
+
+.cloud-one {
+  top: 35px;
+  left: 15px;
+}
+
+.cloud-two {
+  top: 90px;
+  right: 10px;
+  transform: scale(.7);
+}
+
+/* =========================
+   Paintings
+========================= */
+
+.painting {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f7f1e8;
+  border: 7px solid #c6ae93;
+
+  box-shadow:
+    5px 8px 18px rgba(70, 55, 45, .12);
+
+  color: #7f8c75;
+}
+
+.painting-one {
+  top: 105px;
+  right: 7vw;
+
+  width: 90px;
+  height: 120px;
+
+  transform: rotate(2deg);
+}
+
+.painting-two {
+  top: 250px;
+  right: 16vw;
+
+  width: 75px;
+  height: 95px;
+
+  transform: rotate(-3deg);
+}
+
+.painting-three {
+  top: 100px;
+  right: 22vw;
+
+  width: 85px;
+  height: 105px;
+
+  transform: rotate(1deg);
+}
+
+.painting span {
+  font-size: 28px;
+}
+
+/* =========================
+   Library
+========================= */
+
+.shelf-library {
+  position: absolute;
+
+  left: 50%;
+  top: 75px;
+
+  width: min(60vw, 700px);
+
+  transform: translateX(-50%);
+}
+
+.shelf-title {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+
+  margin-bottom: 10px;
+  padding-right: 10px;
+
+  color: #594f46;
+}
+
+.shelf-title span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.shelf-title small {
+  color: #978a7d;
+  font-size: 12px;
+}
+
+.bookshelf {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+
+  padding: 13px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a88667,
+      #b99a7a 50%,
+      #9d7b5e
+    );
+
+  border: 8px solid #947052;
+
+  box-shadow:
+    0 22px 35px rgba(63, 48, 36, .20);
+}
+
+.shelf {
+  position: relative;
+
+  min-height: 135px;
+  padding: 10px 10px 12px;
+
+  border: 0;
+  border-bottom: 9px solid #8c674b;
+  border-radius: 3px;
+
+  text-align: right;
+
+  background:
+    linear-gradient(
+      90deg,
+      #eee3d6,
+      #e5d5c5
+    );
+
+  color: #4d433b;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.shelf:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(50, 40, 30, .15);
+}
+
+.shelf-number {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+
+  color: #a09080;
+}
+
+.shelf-books {
+  display: flex;
+  align-items: flex-end;
+
+  height: 65px;
+  gap: 4px;
+
+  padding-right: 4px;
+}
+
+.shelf-books i {
+  display: block;
+
+  width: 12px;
+  height: 48px;
+
+  border-radius: 2px 2px 0 0;
+
+  background: #9b8876;
+}
+
+.shelf-books i:nth-child(2) {
+  height: 58px;
+  background: #9a9d83;
+}
+
+.shelf-books i:nth-child(3) {
+  height: 42px;
+  background: #b9969a;
+}
+
+.shelf-books i:nth-child(4) {
+  height: 53px;
+  background: #8b9aa0;
+}
+
+.shelf-books i:nth-child(5) {
+  height: 46px;
+  background: #a88d73;
+}
+
+.shelf-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 7px;
+}
+
+.shelf-label strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.shelf-label small {
+  color: #8c7e71;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Desk
+========================= */
+
+.desk {
+  position: absolute;
+  bottom: 30px;
+  left: 7vw;
+
+  width: 230px;
+  height: 135px;
+}
+
+.desk-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 15px;
+
+  background: #9d7959;
+  border-radius: 4px;
+
+  box-shadow: 0 6px 8px rgba(50, 40, 30, .15);
+}
+
+.desk::before,
+.desk::after {
+  content: "";
+
+  position: absolute;
+  top: 12px;
+
+  width: 12px;
+  height: 120px;
+
+  background: #87664d;
+}
+
+.desk::before {
+  left: 15px;
+}
+
+.desk::after {
+  right: 15px;
+}
+
+.desk-drawer {
+  position: absolute;
+
+  top: 30px;
+  left: 72px;
+
+  width: 90px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #a98564;
+  border: 2px solid #866348;
+
+  color: #e9d8c5;
+}
+
+.desk-drawer span {
+  font-size: 13px;
+}
+
+/* =========================
+   Conan & Heiji picture
+========================= */
+
+.picture-frame {
+  position: absolute;
+
+  top: -65px;
+  left: 75px;
+
+  width: 95px;
+  height: 70px;
+
+  padding: 5px;
+
+  background: #c1a27f;
+  box-shadow: 0 7px 12px rgba(60, 45, 35, .15);
+
+  transform: rotate(-2deg);
+}
+
+.picture-placeholder {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  background: #d9e0dc;
+
+  color: #594f47;
+  font-size: 9px;
+}
+
+/* =========================
+   Notebook
+========================= */
+
+.notebook {
+  position: absolute;
+
+  top: -45px;
+  right: 15px;
+
+  width: 72px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #735849;
+
+  color: #e9dcca;
+
+  border-radius: 3px;
+
+  transform: rotate(5deg);
+
+  box-shadow: 0 6px 10px rgba(60, 45, 35, .15);
+}
+
+.notebook span {
+  font-size: 10px;
+}
+
+/* =========================
+   Chair
+========================= */
+
+.chair {
+  position: absolute;
+
+  right: 5vw;
+  bottom: 25px;
+
+  width: 155px;
+  height: 170px;
+}
+
+.chair-back {
+  position: absolute;
+
+  top: 0;
+  left: 15px;
+
+  width: 125px;
+  height: 105px;
+
+  background: #b9a58e;
+
+  border-radius: 45px 45px 12px 12px;
+
+  box-shadow: 7px 10px 16px rgba(55, 45, 35, .12);
+}
+
+.chair-seat {
+  position: absolute;
+
+  left: 5px;
+  bottom: 20px;
+
+  width: 145px;
+  height: 60px;
+
+  background: #a88e73;
+
+  border-radius: 25px;
+}
+
+/* =========================
+   Lamp
+========================= */
+
+.lamp {
+  position: absolute;
+
+  right: 28vw;
+  bottom: 50px;
+
+  width: 65px;
+  height: 150px;
+}
+
+.lamp-shade {
+  position: absolute;
+
+  top: 0;
+  left: 5px;
+
+  width: 55px;
+  height: 45px;
+
+  background: #d5bfa5;
+
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.lamp-stem {
+  position: absolute;
+
+  top: 40px;
+  left: 31px;
+
+  width: 4px;
+  height: 80px;
+
+  background: #8a7662;
+}
+
+.lamp-base {
+  position: absolute;
+
+  bottom: 0;
+  left: 13px;
+
+  width: 40px;
+  height: 10px;
+
+  background: #806c59;
+
+  border-radius: 50%;
+}
+
+/* =========================
+   Plant
+========================= */
+
+.plant {
+  position: absolute;
+
+  right: 2vw;
+  bottom: 25px;
+
+  width: 80px;
+  height: 130px;
+}
+
+.leaf {
+  position: absolute;
+
+  font-size: 38px;
+}
+
+.leaf-one {
+  left: 25px;
+  top: 0;
+}
+
+.leaf-two {
+  left: 5px;
+  top: 20px;
+
+  transform: rotate(-25deg);
+}
+
+.leaf-three {
+  right: 0;
+  top: 20px;
+
+  transform: rotate(25deg);
+}
+
+.plant-pot {
+  position: absolute;
+
+  bottom: 0;
+  left: 20px;
+
+  width: 48px;
+  height: 42px;
+
+  background: #b68f74;
+
+  border-radius: 5px 5px 14px 14px;
+}
+
+/* =========================
+   Floor
+========================= */
+
+.room-floor {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 33vh;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #d4c2ae 0,
+      #d4c2ae 90px,
+      #cdb9a4 92px,
+      #cdb9a4 94px
+    );
+
+  z-index: -1;
+}
+
+.rug {
+  position: absolute;
+
+  left: 50%;
+  bottom: 35px;
+
+  width: 42vw;
+  max-width: 500px;
+  height: 105px;
+
+  transform: translateX(-50%);
+
+  background: #e2d6c8;
+
+  border-radius: 50%;
+
+  opacity: .9;
+}
+
+/* =========================
+   Welcome note
+========================= */
+
+.welcome-note {
+  position: fixed;
+
+  left: 25px;
+  bottom: 22px;
+
+  z-index: 40;
+
+  max-width: 210px;
+
+  padding: 13px 16px;
+
+  background: rgba(250, 246, 239, .9);
+
+  border: 1px solid rgba(120, 100, 80, .12);
+
+  box-shadow: 0 8px 22px rgba(60, 45, 35, .08);
+
+  color: #64594f;
+}
+
+.welcome-note span {
+  font-size: 13px;
+}
+
+.welcome-note p {
+  margin: 5px 0 0;
+
+  color: #96887a;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 800px) {
+
+  .topbar {
+    position: relative;
+
+    padding: 18px 20px;
+
+    background: rgba(250, 246, 239, .92);
+
+    gap: 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .topbar nav a {
+    font-size: 12px;
+  }
+
+  .room {
+    padding-top: 0;
+  }
+
+  .room-wall {
+    min-height: 1000px;
+  }
+
+  .shelf-library {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 92%;
+
+    margin: 50px auto 0;
+
+    transform: none;
+  }
+
+  .bookshelf {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .window {
+    top: 30px;
+    left: 20px;
+
+    transform: scale(.7);
+    transform-origin: top left;
+  }
+
+  .painting {
+    transform: scale(.7);
+  }
+
+  .painting-one {
+    top: 30px;
+    right: 20px;
+  }
+
+  .painting-two {
+    top: 200px;
+    right: 20px;
+  }
+
+  .painting-three {
+    display: none;
+  }
+
+  .desk {
+    left: 20px;
+    bottom: 30px;
+
+    transform: scale(.8);
+    transform-origin: bottom left;
+  }
+
+  .chair {
+    right: 10px;
+    bottom: 30px;
+
+    transform: scale(.75);
+    transform-origin: bottom right;
+  }
+
+  .lamp {
+    right: 45%;
+    bottom: 50px;
+
+    transform: scale(.7);
+  }
+
+  .plant {
+    display: none;
+  }
+
+  .welcome-note {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .bookshelf {
+    grid-template-columns: 1fr;
+  }
+
+  .shelf {
+    min-height: 120px;
+  }
+
+  .room-wall {
+    min-height: 1350px;
+  }
+
+  .topbar nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* =========================
+   Reduced motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  }
